@@ -1,0 +1,24 @@
+CREATE TABLE `Mos_Device` (
+	`id` INT NULL AUTO_INCREMENT,
+	`device_number` VARCHAR(50) NULL,
+	`device_model` VARCHAR(20) NULL,
+	`electricity` VARCHAR(10) NULL,
+	`status` VARCHAR(10) NULL,
+	`maintenance_records` INT NULL,
+	`Maintenance_time` TIMESTAMP NULL,
+	`location` VARCHAR(50) NULL,
+	`keeper` VARCHAR(10) NULL,
+	`in_database_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+Select * from mos_device a Where `in_database_time` = (Select Max(b.`in_database_time`) from mos_device b Where a.device_number = b.device_number)
+
+
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_a5', 'stm32f401', '已無電量', '停用中', '2', '2017-01-01 15:01:43', '32°02''00.6"N 141°33''50.8"E', '王大明', CURRENT_TIMESTAMP);
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_a4', 'stm32f401', '已無電量', '停用中', '3', '2017-01-01 13:01:43', '34°02''00.6"N 141°33''50.8"E', '李曉華', CURRENT_TIMESTAMP);
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_c1', 'stm32f401', '尚有電量', '啟用中', '0', '2017-01-02 12:01:43', '36°02''00.6"N 111°33''50.8"E', '蕭純芳', CURRENT_TIMESTAMP);
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_b1', 'stm32f401', '尚有電量', '啟用中', '0', '2017-01-01 11:01:43', '37°02''00.6"N 121°33''50.8"E', '舔凱文', CURRENT_TIMESTAMP);
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_c1', 'stm32f401', '尚有電量', '啟用中', '1', '2017-01-03 09:01:43', '38°02''00.6"N 131°33''50.8"E', '蕭純芳', CURRENT_TIMESTAMP);
+INSERT INTO `mos_device` (`id`, `device_number`, `device_model`, `electricity`, `status`, `maintenance_records`, `Maintenance_time`, `location`, `keeper`, `in_database_time`) VALUES (NULL, 'group_b1', 'stm32f401', '尚有電量', '啟用中', '0', '2017-01-03 07:01:43', '39°02''00.6"N 101°33''50.8"E', '舔凱文', CURRENT_TIMESTAMP);
